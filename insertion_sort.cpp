@@ -5,17 +5,15 @@
 void randomizeArray(int*& array, int& size){
     // Generates random seeds to number generator.
     std::random_device rd;
-    // Use the 'mt19937' object as the random number generator.
+    // Use the 'mt19937' object as the random number generator
     std::mt19937 rng(rd());
     // Define a uniform distribution
     std::uniform_int_distribution<> distSize(1, 100);
     std::uniform_int_distribution<> distArray(1, 1000);
     size = distSize(rng);
     array = new int[size];
-    int num;
     for (int i = 0; i < size; i++){
-        num = distArray(rng);
-        array[i] = num;
+        array[i] = distArray(rng);
     }
 }
 
